@@ -3,8 +3,15 @@ import pickle
 import numpy as np
 
 # Load model & scaler
-model = pickle.load(open('model.pkl', 'rb'))
-scaler = pickle.load(open('scaler.pkl', 'rb'))
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(BASE_DIR, 'model.pkl')
+scaler_path = os.path.join(BASE_DIR, 'scaler.pkl')
+
+model = pickle.load(open(model_path, 'rb'))
+scaler = pickle.load(open(scaler_path, 'rb'))
 
 # Title
 st.set_page_config(page_title="AI Churn Predictor", layout="centered")
